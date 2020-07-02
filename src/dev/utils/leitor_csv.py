@@ -7,11 +7,11 @@ class Csv:
 
     def ler_csv(self, arquivo):
 
-        Log().escrever("Lendo arquivo CSV")
+        Log().escrever("Lendo o arquivo "+ arquivo)
 
         lista_valores = []
 
-        valores_desordenados = "arquives"+"\"
+        valores_desordenados = "arquives\\"+arquivo
 
         with open(valores_desordenados, 'r') as arquivo_csv:
             leitor = csv.reader(arquivo_csv, delimiter=';')
