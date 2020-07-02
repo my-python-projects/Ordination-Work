@@ -1,3 +1,5 @@
+from src.dev.utils.log import Log
+
 def bubbleSort(alist):
     
     comparacoes = 0
@@ -16,7 +18,9 @@ def bubbleSort(alist):
                 alist[i+1] = temp
                 movimentacao += 1
     
-    print(
-        '\nComparacoes: ', comparacoes,
-        '\nMovimentacoes: ', movimentacao
-    )
+    texto = '''Resultados do Bubble Sort: 
+        \n\t\tComparacoes: {} 
+        \n\t\tMovimentacoes: {}
+    '''.format(comparacoes, movimentacao)
+
+    Log().escrever(texto)

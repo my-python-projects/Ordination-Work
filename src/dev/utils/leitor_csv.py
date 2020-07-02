@@ -5,13 +5,13 @@ from src.dev.utils.log import *
 
 class Csv:
 
-    def ler_csv(self):
+    def ler_csv(self, arquivo):
 
-        escrever("Lendo arquivo CSV")
+        Log().escrever("Lendo arquivo CSV")
 
         lista_valores = []
 
-        valores_desordenados = 'arquives\Entrada1.csv'
+        valores_desordenados = "arquives"+"\"
 
         with open(valores_desordenados, 'r') as arquivo_csv:
             leitor = csv.reader(arquivo_csv, delimiter=';')
@@ -19,7 +19,7 @@ class Csv:
             for coluna in leitor:                    
                 lista_valores.append(coluna)
 
-        escrever('Finalizado a leitura e agora retornando lista de itens...')
+        Log().escrever('Finalizado a leitura e agora retornando lista de itens...')
         
         return lista_valores
       

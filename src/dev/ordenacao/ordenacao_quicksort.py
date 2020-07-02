@@ -1,3 +1,4 @@
+from src.dev.utils.log import Log
 
 class QuickSort:
 
@@ -6,10 +7,12 @@ class QuickSort:
         self._movimentacoes = 0
         self.quickSort(alist)
         
-        print(
-            '\nComparacoes: ', self._comparacoes,
-            '\nMovimentacoes: ', self._movimentacoes
-        )
+        texto = '''Resultados do QuickSort: 
+            \n\t\tComparacoes: {} 
+            \n\t\tMovimentacoes: {}
+        '''.format(self._comparacoes, self._movimentacoes)
+
+        Log().escrever(texto)
 
 
     def quickSort(self, alist):
