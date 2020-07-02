@@ -4,17 +4,23 @@ from src.dev.ordenacao.ordenacao_quicksort import *
 from src.dev.utils.leitor_csv import *
 
 
+class Principal:
+
+    def start_ordering(self):
+        # Ordenacao por insercao
+        lista_desordenada = Csv().ler_csv()
+        ordenacao_insercao(lista_desordenada)
+
+        # Ordenação por Bubble Sort
+        lista_desordenada = Csv().ler_csv()
+        bubbleSort(lista_desordenada)
+
+        lista_desordenada = Csv().ler_csv()
+        QuickSort(lista_desordenada) 
+
+
 if __name__ == '__main__':
-    
-    # Ordenacao por insercao
-    lista_desordenada = ler_csv()
-    ordenacao_insercao(lista_desordenada)
-
-    # Ordenação por Bubble Sort
-    lista_desordenada = ler_csv()
-    bubbleSort(lista_desordenada)
-
-    lista_desordenada = ler_csv()
-    QuickSort(lista_desordenada)    
+    Principal().start_ordering()
+       
     
 
