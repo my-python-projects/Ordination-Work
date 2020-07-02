@@ -8,7 +8,7 @@ def ler_csv():
 
     lista_valores = []
 
-    valores_desordenados = '{}\Entrada1.csv'.format(os.path.dirname(os.path.abspath(__file__)))
+    valores_desordenados = 'arquives\Entrada1.csv'
 
     with open(valores_desordenados, 'r') as arquivo_csv:
         leitor = csv.reader(arquivo_csv, delimiter=';')

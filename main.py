@@ -1,7 +1,7 @@
 from src.dev.ordenacao.ordenacao_insercao import *
 from src.dev.ordenacao.ordenacao_bubblesort import *
 from src.dev.ordenacao.ordenacao_quicksort import *
-from leitor_csv import *
+from src.dev.utils.leitor_csv import *
 
 
 if __name__ == '__main__':
