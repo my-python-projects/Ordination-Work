@@ -9,7 +9,7 @@ class View:
         # create root window 
         window = Tk()
         
-        window.geometry('500x300+200+200')
+        window.geometry('500x200+200+200')
         window.title('JProgram - Ordination Work')
         window.resizable(width=0, height=0)
         

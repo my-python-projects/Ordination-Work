@@ -11,7 +11,7 @@ class Table:
         frame = Frame(root)
         frame.pack()
 
-        tree = ttk.Treeview(frame, columns = (1,2,3,4), height = 5, show = "headings")
+        tree = ttk.Treeview(frame, columns = (1,2,3,4), height = 8, show = "headings")
         tree.pack(side = 'left')
 
         tree.heading(1, text="Algoritmo")
