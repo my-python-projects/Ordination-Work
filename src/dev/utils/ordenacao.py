@@ -22,58 +22,70 @@ class Ordenacao:
         self._comparacoes_quicksort = []
 
 
+    #----------------------------------#
+    #   Inserção
+    #----------------------------------#
+
     def start_insert(self):
-        # Ordenacao por insercao
-        lista_desordenada = Csv().ler_csv("Entrada1.csv")
         
-        insercao = Insert()
-        insercao.ordenacao_insercao(lista_desordenada)
-
-        self._movimentacoes_insert.append(insercao.get_movimentacoes())
-        self._comparacoes_insert.append(insercao.get_comparacoes())
+        lista_desordenada = Csv().ler_csv("Entrada1.csv")
+        self.save_information_insert(lista_desordenada)
+        
 
         lista_desordenada = Csv().ler_csv("Entrada2.csv")
+        self.save_information_insert(lista_desordenada)
+
+
+    def save_information_insert(self, lista_desordenada):
         insercao = Insert()
         insercao.ordenacao_insercao(lista_desordenada)
 
         self._movimentacoes_insert.append(insercao.get_movimentacoes())
         self._comparacoes_insert.append(insercao.get_comparacoes())
 
-
+    #--------------------------------------#
+    #   Bubble Sort
+    #--------------------------------------#
     def start_bubbleSort(self):
-        # Ordenação por Bubble Sort
-        lista_desordenada = Csv().ler_csv("Entrada1.csv")
-        order = BubbleSort()
-        
-        order.bubbleSort(lista_desordenada)
-
-        self._movimentacoes_bubble.append(order.get_movimentacoes())
-        self._comparacoes_bubble.append(order.get_comparacoes())        
-
-        # Ordenação por Bubble Sort
-        lista_desordenada = Csv().ler_csv("Entrada2.csv")
-        order = BubbleSort()
-        
-        order.bubbleSort(lista_desordenada)
-
-        self._movimentacoes_bubble.append(order.get_movimentacoes())
-        self._comparacoes_bubble.append(order.get_comparacoes())
-
-
-    def start_quickSort(self):
-        lista_desordenada = Csv().ler_csv("Entrada1.csv")
-        order = QuickSort(lista_desordenada)
-
-        self._movimentacoes_quicksort.append(order.get_movimentacoes())
-        self._comparacoes_quicksort.append(order.get_comparacoes())
-
-        lista_desordenada = Csv().ler_csv("Entrada2.csv")
-        order = QuickSort(lista_desordenada)
-
-        self._movimentacoes_quicksort.append(order.get_movimentacoes())
-        self._comparacoes_quicksort.append(order.get_comparacoes())
-
     
+        lista_desordenada = Csv().ler_csv("Entrada1.csv")
+        self.save_information_bubblesort(lista_desordenada)
+             
+        lista_desordenada = Csv().ler_csv("Entrada2.csv")
+        self.save_information_bubblesort(lista_desordenada)
+
+
+    def save_information_bubblesort(self, lista_desordenada):
+        
+        order = BubbleSort()
+        order.bubbleSort(lista_desordenada)
+        self._movimentacoes_bubble.append(order.get_movimentacoes())
+        self._comparacoes_bubble.append(order.get_comparacoes())   
+
+    #---------------------------------#
+    #   QuickSort   
+    #---------------------------------#
+    
+    def start_quickSort(self):
+        
+        lista_desordenada = Csv().ler_csv("Entrada1.csv")
+        self.save_information_quicksort(lista_desordenada)
+
+        lista_desordenada = Csv().ler_csv("Entrada2.csv")
+        self.save_information_quicksort(lista_desordenada)
+        
+
+    def save_information_quicksort(self, lista_desordenada):
+        
+        order = QuickSort(lista_desordenada)
+        self._movimentacoes_quicksort.append(order.get_movimentacoes())
+        self._comparacoes_quicksort.append(order.get_comparacoes())
+
+
+    #---------------------------------------------------------------------------#
+    #   Informações de movimentacoes e comparações dos algoritmos de ordenação
+    #---------------------------------------------------------------------------#
+
     def get_data(self):
         
         data = [
@@ -88,23 +100,3 @@ class Ordenacao:
         ]
 
         return data
-
-
-    def get_comparacoes(self):
-        return self._comparacoes_quicksort
-
-    def get_comparacoes_insercao(self):
-        return self._comparacoes_insert
-
-    def get_comparacoes_bubblesort(self):
-        return self._comparacoes_bubble
-    
-
-    def get_movimentacoes(self):
-        return self._movimentacoes_quicksort
-
-    def get_movimentacoes_insercao(self):
-        return self._movimentacoes_insert        
-
-    def get_movimentacoes_bubblesort(self):
-        return self._movimentacoes_bubble
