@@ -3,50 +3,41 @@ from src.dev.ordenacao.ordenacao_bubblesort import *
 from src.dev.ordenacao.ordenacao_quicksort import *
 from src.dev.utils.leitor_csv import *
 from src.dev.utils.log import Log
-
+from src.dev.visual.view import *
+from src.dev.utils.ordenacao import *
 
 class Principal:
 
-    def start_insert(self):
-        # Ordenacao por insercao
-        lista_desordenada = Csv().ler_csv("Entrada1.csv")
-        Insert().ordenacao_insercao(lista_desordenada)
-
-        lista_desordenada = Csv().ler_csv("Entrada2.csv")
-        Insert().ordenacao_insercao(lista_desordenada)
-
-
-    def start_bubbleSort(self):
-        # Ordenação por Bubble Sort
-        lista_desordenada = Csv().ler_csv("Entrada1.csv")
-        bubbleSort(lista_desordenada)
-
-        # Ordenação por Bubble Sort
-        lista_desordenada = Csv().ler_csv("Entrada2.csv")
-        bubbleSort(lista_desordenada)
-
-
-    def start_quickSort(self):
-        lista_desordenada = Csv().ler_csv("Entrada1.csv")
-        QuickSort(lista_desordenada) 
-
-        lista_desordenada = Csv().ler_csv("Entrada2.csv")
-        QuickSort(lista_desordenada)
-
-
+    def __init__(self):
+        self.start_order = Ordenacao()
+    
     def start_ordering(self):
         Log().escrever("Iniciando o processo de ordenação...")
 
-        self.start_insert()
-        self.start_bubbleSort()
-        self.start_quickSort()
+        self.start_order.start_insert()
+        self.start_order.start_bubbleSort()
+        self.start_order.start_quickSort()
 
         Log().escrever("Finalizado o processo de ordenação\n")
 
 
-
 if __name__ == '__main__':
-    Principal().start_ordering()
+    
+    initi = Principal()
+    initi.start_ordering()
+
+    data = [
+        
+        ['Inserção', 'Comparações', initi.start_order.get_comparacoes_insercao()[0], initi.start_order.get_comparacoes_insercao()[1]],
+        ['Inserção', 'Movimentações', initi.start_order.get_movimentacoes_insercao()[0], initi.start_order.get_movimentacoes_insercao()[1]],
+        ['BubbleSort', 'Comparações', initi.start_order.get_comparacoes_bubblesort()[0], initi.start_order.get_comparacoes_bubblesort()[1]],
+        ['BubbleSort', 'Movimentações', initi.start_order.get_movimentacoes_bubblesort()[0], initi.start_order.get_movimentacoes_bubblesort()[1]],
+        ['QuickSort', 'Comparações', initi.start_order.get_comparacoes()[0], initi.start_order.get_comparacoes()[1]],
+        ['QuickSort', 'Movimentações', initi.start_order.get_movimentacoes()[0], initi.start_order.get_movimentacoes()[1]]
+    ]
+
+    View().createView(data)
+
        
     
 

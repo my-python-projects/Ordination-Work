@@ -15,6 +15,12 @@ class QuickSort:
         Log().escrever(texto)
 
 
+    def get_comparacoes(self):
+        return self._comparacoes
+
+    def get_movimentacoes(self):
+        return self._movimentacoes
+
     def quickSort(self, alist):
         self.quickSortHelper(alist,0,len(alist)-1, self._comparacoes, self._movimentacoes)
 
