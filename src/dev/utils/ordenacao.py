@@ -1,3 +1,6 @@
+#---------------------------------------------------
+#                   Imports
+#---------------------------------------------------
 from src.dev.ordenacao.ordenacao_insercao import Insert
 from src.dev.ordenacao.ordenacao_bubblesort import *
 from src.dev.ordenacao.ordenacao_quicksort import *
@@ -69,6 +72,22 @@ class Ordenacao:
 
         self._movimentacoes_quicksort.append(order.get_movimentacoes())
         self._comparacoes_quicksort.append(order.get_comparacoes())
+
+    
+    def get_data(self):
+        
+        data = [
+            ['Inserção', 'Comparações', self._comparacoes_insert[0], self._comparacoes_insert[1]],
+            ['Inserção', 'Movimentações', self._movimentacoes_insert[0], self._movimentacoes_insert[1]],
+            
+            ['BubbleSort', 'Comparações', self._comparacoes_bubble[0], self._comparacoes_bubble[1]],
+            ['BubbleSort', 'Movimentações', self._movimentacoes_bubble[0], self._movimentacoes_bubble[1]],
+            
+            ['QuickSort', 'Comparações', self._comparacoes_quicksort[0], self._comparacoes_quicksort[1]],
+            ['QuickSort', 'Movimentações', self._movimentacoes_quicksort[0], self._movimentacoes_quicksort[1]]
+        ]
+
+        return data
 
 
     def get_comparacoes(self):
